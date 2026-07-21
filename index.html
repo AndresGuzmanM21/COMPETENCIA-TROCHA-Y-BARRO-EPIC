@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trocha Y Barro EPIC</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            background:#121212;
+            color:rgb(245, 241, 241);
+            font-family:Arial, sans-serif;
+        }
+
+        header{
+            padding:40px 20px;
+        }
+
+        /* CONTENEDOR PRINCIPAL CON IMAGEN DE FONDO */
+        .contenedor{
+            max-width:1100px;
+            margin:auto;
+            border-radius:25px;
+            padding:40px;
+            text-align:center;
+            
+            background-image: url("fondo.jpg"); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 500px;
+        }
+
+        /* LOGO TRANSPARENTE EN TAMAÑO GRANDE Y CENTRADO */
+        .logo{
+            width: 260px;          
+            height: auto;          
+            display: block;
+            margin: 0 auto 20px auto; 
+        }
+
+        h1{
+            font-size:clamp(40px,6vw,80px);
+            margin-bottom:20px;
+            text-shadow: 0 0 10px black, 0 0 20px black; 
+        }
+
+        .fecha{
+            font-size:28px;
+            line-height:1.8;
+            text-shadow: 0 0 10px black, 0 0 20px black;
+        }
+
+        /* SECCIÓN DEL CONTADOR */
+        .contador-section{
+            margin-top:50px;
+            text-align:center;
+        }
+
+        .contador-section h2{
+            font-size:40px;
+            margin-bottom:30px;
+        }
+
+        #contador{
+            display:flex;
+            justify-content:center;
+            gap:20px;
+            flex-wrap:wrap;
+        }
+
+        .bloque{
+            background:#000;
+            padding:20px;
+            border-radius:15px;
+            min-width:120px;
+            box-shadow:0 0 15px rgba(255,0,0,.3);
+        }
+
+        .numero{
+            font-size:48px;
+            font-weight:bold;
+            color:#ff3300;
+        }
+
+        .texto{
+            font-size:18px;
+        }
+
+        .info{
+            max-width:1000px;
+            margin:50px auto;
+            text-align:center;
+            font-size:22px;
+            line-height:2;
+        }
+
+        /* SECCIÓN PARA EL VIDEO VERTICAL (9:16) */
+        .video-section {
+            max-width: 380px; 
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .video-contenedor {
+            position: relative;
+            padding-bottom: 177.77%; 
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+            background: #000;
+        }
+
+        .video-contenedor video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            border: none;
+        }
+
+        .galeria{
+            max-width:1200px;
+            margin:auto;
+            padding:40px 20px;
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            gap:15px;
+        }
+
+        .galeria img{
+            width:100%;
+            height:280px;
+            object-fit:cover;
+            border-radius:15px;
+            cursor:pointer;
+            transition: .3s;
+        }
+
+        .galeria img:hover{
+            transform: scale(1.03);
+        }
+
+        .modal{
+            display:none;
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,.95);
+            z-index:9999;
+        }
+
+        .modal img{
+            max-width:95%;
+            max-height:95%;
+            display:block;
+            margin:auto;
+            margin-top:20px;
+        }
+
+        .cerrar{
+            position:absolute;
+            top:20px;
+            right:30px;
+            color:white;
+            font-size:40px;
+            cursor:pointer;
+        }
+
+        form{
+            max-width:700px;
+            margin:50px auto;
+            display:flex;
+            flex-direction:column;
+            gap:15px;
+            padding:20px;
+        }
+
+        input,
+        select{
+            padding:15px;
+            border:none;
+            border-radius:10px;
+            font-size:16px;
+        }
+
+        button{
+            padding:15px;
+            border:none;
+            border-radius:10px;
+            background:#ff0000;
+            color:white;
+            font-size:18px;
+            cursor:pointer;
+            transition: .2s;
+        }
+
+        button:hover{
+            background: #cc0000;
+        }
+
+        .whatsapp{
+            position:fixed;
+            right:20px;
+            bottom:20px;
+            background:#25D366;
+            color:white;
+            text-decoration:none;
+            padding:15px 20px;
+            border-radius:50px;
+            font-size:18px;
+            font-weight:bold;
+            z-index: 1000;
+        }
+
+        footer{
+            text-align:center;
+            padding:30px;
+            background:#000;
+            margin-top:40px;
+        }
+
+        @media(max-width: 768px){
+            .logo{
+                width: 160px;
+            }
+            .video-section {
+                max-width: 320px; 
+            }
+            .bloque{
+                min-width: 90px;
+                padding: 15px;
+            }
+            .numero{
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="contenedor">
+            <img src="logo.png" class="logo" alt="Logo Trocha y Barro">
+
+            <h1>TROCHA Y BARRO EPIC</h1>
+
+            <p class="fecha">
+                11 de Agosto de 2026<br>
+                6:00 AM
+            </p>
+        </div>
+    </header>
+
+    <section class="contador-section">
+        <h2>Cuenta Regresiva</h2>
+        <div id="contador">
+            <div class="bloque">
+                <div class="numero" id="dias">00</div>
+                <div class="texto">Días</div>
+            </div>
+            <div class="bloque">
+                <div class="numero" id="horas">00</div>
+                <div class="texto">Horas</div>
+            </div>
+            <div class="bloque">
+                <div class="numero" id="minutos">00</div>
+                <div class="texto">Minutos</div>
+            </div>
+            <div class="bloque">
+                <div class="numero" id="segundos">00</div>
+                <div class="texto">Segundos</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="info">
+        <p>📍 Xuachá Parque</p>
+        <p>🚵 35 KM Aproximadamente</p>
+        <p>⛰️ 1100 m de desnivel</p>
+        <p>🔥 Ascensos y descensos técnicos</p>
+        <p>🎯 Single Tracks</p>
+    </section>
+
+    <section class="video-section">
+        <h2 style="text-align:center; margin-bottom: 25px;">Video Oficial de la Ruta</h2>
+        <div class="video-contenedor">
+            <video controls preload="metadata">
+                <source src="trochaybarroepic.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de video.
+            </video>
+        </div>
+    </section>
+
+    <section>
+        <h2 style="text-align:center;">Galería</h2>
+        <div class="galeria">
+            <img src="amigos.jpeg" onclick="abrir(this.src)">
+            <img src="trocha y barro epic.jpeg" onclick="abrir(this.src)">
+            <img src="trocha y barro.jpeg" onclick="abrir(this.src)">
+            <img src="xuacha race.jpeg" onclick="abrir(this.src)">
+        </div>
+    </section>
+
+    <section>
+        <h2 style="text-align:center;">Inscripción</h2>
+        <!-- Reemplaza por tu correo en el action si usas formsubmit.co -->
+        <form action="https://formsubmit.co" method="POST">
+            <input type="text" name="Nombre" placeholder="Nombre Completo" required>
+            <input type="text" name="Contacto_Emergencia" placeholder="Contacto de emergencia" required>
+            <input type="tel" name="Telefono" placeholder="Teléfono" required>
+
+            <select name="Pago">
+                <option value="">¿Ya realizaste el Pago?</option>
+                <option value="NO">NO</option>
+                <option value="SI">SI</option>
+            </select>
+
+            <input type="hidden" name="_captcha" value="false">
+            <button type="submit">INSCRIBIRME</button>
+        </form>
+    </section>
+
+    <footer>
+        © 2026 Trocha Y Barro EPIC
+    </footer>
+
+    <a class="whatsapp" href="https://wa.me3053654031ank">
+        📲 WhatsApp
+    </a>
+
+    <div class="modal" id="modal">
+        <span class="cerrar" onclick="cerrar()">✖</span>
+        <img id="imagenGrande" alt="Vista ampliada">
+    </div>
+
+    <!-- Borra la línea anterior de JavaScript.js y pega esto exactamente en su lugar -->
+    <script>
+        const fechaEvento = new Date("2026-08-11T06:00:00").getTime();
+
+        function actualizarContador() {
+            const ahora = new Date().getTime();
+            const diferencia = fechaEvento - ahora;
+
+            if (diferencia <= 0) {
+                document.getElementById("contador").innerHTML = "<h3 style='color:#ff3300; font-size: 24px; width: 100%; text-align: center;'>¡El evento ha comenzado!</h3>";
+                return;
+            }
+
+            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+            document.getElementById("dias").innerText = dias < 10 ? "0" + dias : dias;
+            document.getElementById("horas").innerText = horas < 10 ? "0" + horas : horas;
+            document.getElementById("minutos").innerText = minutos < 10 ? "0" + minutos : minutos;
+            document.getElementById("segundos").innerText = segundos < 10 ? "0" + segundos : segundos;
+        }
+
+        actualizarContador();
+        setInterval(actualizarContador, 1000);
+
+        function abrir(src) {
+            document.getElementById("modal").style.display = "block";
+            document.getElementById("imagenGrande").src = src;
+        }
+
+        function cerrar() {
+            document.getElementById("modal").style.display = "none";
+        }
+    </script>
+</body>
+</html>
