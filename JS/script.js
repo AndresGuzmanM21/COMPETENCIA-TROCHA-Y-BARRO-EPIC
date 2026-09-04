@@ -1,483 +1,305 @@
-javascript;
-/* =========================================================
-   TROCHA Y BARRO EPIC
-   GALERÍA AUTOMÁTICA DE FOTOS Y VIDEOS
-========================================================= */
+// ==========================================
+// TROCHA Y BARRO
+// GALERÍA EPIC 2026
+// ==========================================
 
-/* =========================================================
-   CONFIGURACIÓN DE GITHUB
-========================================================= */
+// ==========================================
+// FOTOS REALES
+// ==========================================
 
-// Usuario de GitHub
-const GITHUB_USER = "andresguzmanm21";
+const fotosEpic = [
+  "img/fotos/chala.jpeg",
+  "img/fotos/cobos.jpeg",
+  "img/fotos/fandiño.jpeg",
+  "img/fotos/larry.jpeg",
+  "img/fotos/morfeo.jpeg",
+  "img/fotos/tyb.jpeg",
+  "img/fotos/andresyJ.jpeg",
+  "img/fotos/andres tyb.jpeg",
+  "img/fotos/cobos subiendo panamatranqui copy.jpeg",
+  "img/fotos/fabianpaimento.jpeg",
+  "img/fotos/leidy subiendo copy.jpeg",
+  "img/fotos/candelera.jpeg",
+  "img/fotos/soachaparque.jpeg",
+  "img/fotos/grupalarriba.jpeg",
+  "img/fotos/trocha y barro.jpeg",
+  "img/fotos/fotogrupalladrilleras.jpeg",
+  "img/fotos/grupalabajo.jpeg",
+  "img/fotos/grupalarriba2.jpeg",
+  "img/fotos/epic1.jpeg",
+  "img/fotos/epic2.jpeg",
+  "img/fotos/epic3.jpeg",
+];
 
-// Nombre exacto del repositorio
-const GITHUB_REPO = "COMPETENCIA-TROCHA-Y-BARRO-EPIC";
+// ==========================================
+// VIDEOS REALES
+// ==========================================
 
-// Carpetas donde estarán las fotografías y videos
-const CARPETA_FOTOS = "img/epic";
-const CARPETA_VIDEOS = "img/videos";
+const videosEpic = [
+  "img/videos/bajando despues de la U.mp4",
+  "img/videos/bajando piedras para empezar a bajar san mateo.mp4",
+  "img/videos/bajando tecnica.mp4",
+  "img/videos/cobos subiendo con yosep panama.mp4",
+  "img/videos/empezando a subir bajada tecnica.mp4",
+  "img/videos/larry subiendo panama.mp4",
+  "img/videos/WhatsApp Video 2026-08-11 at 5.42.32 PM.mp4",
+  "img/videos/WhatsApp Video 2026-08-11 at 5.42.36 PM.mp4",
+  "img/videos/WhatsApp Video 2026-08-12 at 5.43.03 PM.mp4",
+  "img/videos/WhatsApp Video 2026-08-18 at 1.09.46 PM.mp4",
+  "img/videos/WhatsApp Video 2026-08-18 at 1.09.49 PM.mp4",
+  "img/videos/WhatsApp Video 2026-08-18 at 1.09.50 PM.mp4",
+  "img/videos/WhatsApp Video 2026-08-18 at 1.09.51 PM.mp4",
+  "img/videos/subida antes de rompebiker.mp4",
+  "img/videos/subiendo piedras finalizando ruta.mp4",
+  "img/videos/trochaybarroepic.mp4",
+];
 
-/* =========================================================
-   CONFIGURACIÓN DE LA GALERÍA
-========================================================= */
+// ==========================================
+// CONFIGURACIÓN (Rutas corregidas a cadena vacía)
+// ==========================================
 
-const FOTOS_POR_CARGA = 24;
+const rutaFotos = "";
+const rutaVideos = "";
 
-let archivosGaleria = [];
+const fotosPorCarga = 12;
+let fotosMostradas = 0;
 
-let archivosMostrados = 0;
+// ==========================================
+// CREAR ELEMENTOS
+// ==========================================
 
-let indiceActual = 0;
+function crearFoto(nombre, numero) {
+  const contenedor = document.getElementById("galeriaEpicFotos");
 
-/* =========================================================
-   ELEMENTOS DEL HTML
-========================================================= */
+  if (!contenedor) {
+    console.error("No existe #galeriaEpicFotos");
+    return;
+  }
 
-const galeria = document.getElementById("epicGallery");
+  const tarjeta = document.createElement("div");
+  tarjeta.className = "epic-photo";
 
-const botonCargarMas = document.getElementById("cargarMas");
+  tarjeta.onclick = function () {
+    abrirImagen(this);
+  };
 
-const modal = document.getElementById("modal");
+  const imagen = document.createElement("img");
+  imagen.src = rutaFotos + nombre;
+  imagen.alt = "Trocha Y Barro EPIC 2026";
+  imagen.loading = "lazy";
 
-const modalMedia = document.getElementById("modalMedia");
+  imagen.onerror = function () {
+    console.error("No se encontró la foto:", imagen.src);
+    tarjeta.remove();
+  };
 
-const modalCounter = document.getElementById("modalCounter");
+  tarjeta.appendChild(imagen);
 
-const botonCerrar = document.getElementById("cerrarModal");
+  const numeroFoto = document.createElement("span");
+  numeroFoto.className = "photo-number";
+  numeroFoto.textContent = String(numero).padStart(2, "0");
 
-const botonAnterior = document.getElementById("modalPrev");
-
-const botonSiguiente = document.getElementById("modalNext");
-
-/* =========================================================
-   EXTENSIONES PERMITIDAS
-========================================================= */
-
-const extensionesImagen = [".jpg", ".jpeg", ".png", ".webp", ".gif"];
-
-const extensionesVideo = [".mp4", ".webm", ".mov"];
-
-/* =========================================================
-   URL DE LA API DE GITHUB
-========================================================= */
-
-function crearUrlApi(carpeta) {
-  return `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${carpeta}`;
+  tarjeta.appendChild(numeroFoto);
+  contenedor.appendChild(tarjeta);
 }
 
-/* =========================================================
-OBTENER ARCHIVOS DE GITHUB
-========================================================= */
+// ==========================================
+// CARGAR FOTOS
+// ==========================================
 
-async function obtenerArchivos(carpeta, tipo) {
-  try {
-    const respuesta = await fetch(crearUrlApi(carpeta));
+function cargarMasFotos() {
+  const siguiente = Math.min(fotosMostradas + fotosPorCarga, fotosEpic.length);
 
-    if (!respuesta.ok) {
-      throw new Error(`Error ${respuesta.status} al acceder a ${carpeta}`);
+  for (let i = fotosMostradas; i < siguiente; i++) {
+    crearFoto(fotosEpic[i], i + 1);
+  }
+
+  fotosMostradas = siguiente;
+  actualizarContadorFotos();
+
+  const boton = document.getElementById("btnCargarMas");
+  if (boton) {
+    if (fotosMostradas >= fotosEpic.length) {
+      boton.style.display = "none";
+    } else {
+      boton.style.display = "inline-flex";
     }
-
-    const archivos = await respuesta.json();
-
-    return archivos
-      .filter((archivo) => archivo.type === "file")
-      .filter((archivo) => {
-        const nombre = archivo.name.toLowerCase();
-
-        if (tipo === "imagen") {
-          return extensionesImagen.some((extension) =>
-            nombre.endsWith(extension),
-          );
-        }
-
-        if (tipo === "video") {
-          return extensionesVideo.some((extension) =>
-            nombre.endsWith(extension),
-          );
-        }
-
-        return false;
-      })
-      .map((archivo) => ({
-        nombre: archivo.name,
-
-        url: archivo.download_url,
-
-        tipo: tipo,
-      }));
-  } catch (error) {
-    console.error(`No se pudieron cargar los archivos de ${carpeta}:`, error);
-
-    return [];
   }
 }
 
-/* =========================================================
-CARGAR TODA LA GALERÍA
-========================================================= */
+// ==========================================
+// CONTADOR DE FOTOS
+// ==========================================
 
-async function cargarGaleria() {
-  mostrarMensajeCarga();
+function actualizarContadorFotos() {
+  const contador = document.getElementById("contadorFotos");
+  if (!contador) return;
+  contador.textContent = fotosEpic.length + " FOTOS";
+}
 
-  const [fotos, videos] = await Promise.all([
-    obtenerArchivos(CARPETA_FOTOS, "imagen"),
+// ==========================================
+// CREAR VIDEO
+// ==========================================
 
-    obtenerArchivos(CARPETA_VIDEOS, "video"),
-  ]);
+function crearVideo(nombre, numero) {
+  const contenedor = document.getElementById("galeriaEpicVideos");
 
-  archivosGaleria = [...fotos, ...videos];
-
-  /* Orden alfabético */
-
-  archivosGaleria.sort((a, b) =>
-    a.nombre.localeCompare(b.nombre, undefined, {
-      numeric: true,
-      sensitivity: "base",
-    }),
-  );
-
-  if (archivosGaleria.length === 0) {
-    mostrarMensajeVacio();
-
+  if (!contenedor) {
+    console.error("No existe #galeriaEpicVideos");
     return;
   }
 
-  galeria.innerHTML = "";
+  const tarjeta = document.createElement("div");
+  tarjeta.className = "epic-video";
 
-  archivosMostrados = 0;
+  const video = document.createElement("video");
+  video.controls = true;
+  video.preload = "metadata";
+  video.playsInline = true;
+  video.setAttribute("controlsList", "nodownload");
 
-  cargarMasArchivos();
+  const fuente = document.createElement("source");
+  fuente.src = rutaVideos + nombre;
+  fuente.type = "video/mp4";
+
+  video.appendChild(fuente);
+
+  video.onerror = function () {
+    console.error("No se encontró el video:", fuente.src);
+    tarjeta.remove();
+  };
+
+  tarjeta.appendChild(video);
+
+  const numeroVideo = document.createElement("span");
+  numeroVideo.className = "video-number";
+  numeroVideo.textContent = "VIDEO " + String(numero).padStart(2, "0");
+
+  tarjeta.appendChild(numeroVideo);
+  contenedor.appendChild(tarjeta);
 }
 
-/* =========================================================
-MOSTRAR MENSAJE DE CARGA
-========================================================= */
+// ==========================================
+// CARGAR VIDEOS
+// ==========================================
 
-function mostrarMensajeCarga() {
-  galeria.innerHTML = `
+function cargarVideos() {
+  const contenedor = document.getElementById("galeriaEpicVideos");
 
-        <div class="gallery-loading">
-
-            CARGANDO MEMORIAS...
-
-        </div>
-
-    `;
-}
-
-/* =========================================================
-GALERÍA VACÍA
-========================================================= */
-
-function mostrarMensajeVacio() {
-  galeria.innerHTML = `
-
-        <div class="gallery-loading">
-
-            TODAVÍA NO HAY FOTOS O VIDEOS.
-
-            <br><br>
-
-            Sube tus archivos a:
-
-            <strong>img/epic/</strong>
-
-            y
-
-            <strong>img/videos/</strong>
-
-        </div>
-
-    `;
-
-  botonCargarMas.style.display = "none";
-}
-
-/* =========================================================
-CARGAR MÁS ARCHIVOS
-========================================================= */
-
-function cargarMasArchivos() {
-  const siguienteCantidad = Math.min(
-    archivosMostrados + FOTOS_POR_CARGA,
-    archivosGaleria.length,
-  );
-
-  for (let i = archivosMostrados; i < siguienteCantidad; i++) {
-    crearElementoGaleria(archivosGaleria[i], i);
-  }
-
-  archivosMostrados = siguienteCantidad;
-
-  actualizarBotonCargarMas();
-}
-
-/* =========================================================
-CREAR ELEMENTO DE GALERÍA
-========================================================= */
-
-function crearElementoGaleria(archivo, indice) {
-  const elemento = document.createElement("div");
-
-  elemento.className = "epic-photo";
-
-  /* =========================================
-    IMAGEN
-    ========================================= */
-
-  if (archivo.tipo === "imagen") {
-    elemento.innerHTML = `
-
-            <img
-                src="${archivo.url}"
-                alt="${obtenerTextoAlt(archivo.nombre)}"
-                loading="lazy"
-            >
-
-            <div class="photo-number">
-
-                ${formatearNumero(indice + 1)}
-
-            </div>
-
-        `;
-  }
-
-  /* =========================================
-    VIDEO
-    ========================================= */
-
-  if (archivo.tipo === "video") {
-    elemento.classList.add("epic-video");
-
-    elemento.innerHTML = `
-
-            <video
-                src="${archivo.url}"
-                muted
-                playsinline
-                preload="metadata"
-            ></video>
-
-            <div class="video-icon">
-                ▶
-            </div>
-
-            <div class="photo-number">
-
-                ${formatearNumero(indice + 1)}
-
-            </div>
-
-        `;
-  }
-
-  /* =========================================
-    CLICK
-    ========================================= */
-
-  elemento.addEventListener("click", () => abrirGaleria(indice));
-
-  galeria.appendChild(elemento);
-}
-
-/* =========================================================
-NÚMERO CON DOS DÍGITOS
-========================================================= */
-
-function formatearNumero(numero) {
-  return String(numero).padStart(2, "0");
-}
-
-/* =========================================================
-TEXTO ALT
-========================================================= */
-
-function obtenerTextoAlt(nombre) {
-  return nombre
-    .replace(/\.[^/.]+$/, "")
-    .replace(/[-_]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-/* =========================================================
-ACTUALIZAR BOTÓN
-========================================================= */
-
-function actualizarBotonCargarMas() {
-  if (archivosMostrados >= archivosGaleria.length) {
-    botonCargarMas.style.display = "none";
-
+  if (!contenedor) {
+    console.error("No existe #galeriaEpicVideos");
     return;
   }
 
-  botonCargarMas.style.display = "inline-flex";
+  contenedor.innerHTML = "";
 
-  botonCargarMas.textContent = `CARGAR MÁS (${archivosGaleria.length - archivosMostrados})`;
+  videosEpic.forEach(function (video, index) {
+    crearVideo(video, index + 1);
+  });
+
+  actualizarContadorVideos();
 }
 
-/* =========================================================
-ABRIR GALERÍA
-========================================================= */
+// ==========================================
+// CONTADOR DE VIDEOS
+// ==========================================
 
-function abrirGaleria(indice) {
-  if (indice < 0 || indice >= archivosGaleria.length) {
-    return;
+function actualizarContadorVideos() {
+  const contador = document.getElementById("contadorVideos");
+  if (!contador) return;
+  contador.textContent = videosEpic.length + " VIDEOS";
+}
+
+// ==========================================
+// CAMBIAR ENTRE FOTOS Y VIDEOS
+// ==========================================
+
+function mostrarGaleria(tipo) {
+  const fotos = document.getElementById("galeriaEpicFotos");
+  const videos = document.getElementById("galeriaEpicVideos");
+  const btnCargarMas = document.getElementById("contenedorCargarMas");
+  const botones = document.querySelectorAll(".epic-filtro");
+
+  if (tipo === "fotos") {
+    if (fotos) fotos.style.display = "grid";
+    if (videos) videos.style.display = "none";
+    if (btnCargarMas)
+      btnCargarMas.style.display =
+        fotosMostradas < fotosEpic.length ? "flex" : "none";
   }
 
-  indiceActual = indice;
+  if (tipo === "videos") {
+    if (fotos) fotos.style.display = "none";
+    if (videos) videos.style.display = "grid";
+    if (btnCargarMas) btnCargarMas.style.display = "none";
+  }
 
-  mostrarArchivoActual();
+  botones.forEach(function (boton) {
+    boton.classList.remove("activo");
+    if (
+      boton.getAttribute("onclick") &&
+      boton.getAttribute("onclick").includes(tipo)
+    ) {
+      boton.classList.add("activo");
+    }
+  });
+}
 
+// ==========================================
+// MODAL DE IMAGEN
+// ==========================================
+
+function abrirImagen(elemento) {
+  const imagen = elemento.querySelector("img") || elemento;
+  const modal = document.getElementById("modal");
+  const imagenGrande = document.getElementById("imagenGrande");
+
+  if (!imagen || !modal || !imagenGrande) return;
+
+  imagenGrande.src = imagen.src;
+  imagenGrande.alt = imagen.alt || "Imagen";
   modal.classList.add("activo");
-
-  modal.setAttribute("aria-hidden", "false");
-
   document.body.style.overflow = "hidden";
 }
 
-/* =========================================================
-MOSTRAR ARCHIVO ACTUAL
-========================================================= */
+function cerrarImagen() {
+  const modal = document.getElementById("modal");
+  const imagenGrande = document.getElementById("imagenGrande");
 
-function mostrarArchivoActual() {
-  const archivo = archivosGaleria[indiceActual];
+  if (!modal) return;
 
-  modalMedia.innerHTML = "";
-
-  if (archivo.tipo === "imagen") {
-    const imagen = document.createElement("img");
-
-    imagen.src = archivo.url;
-
-    imagen.alt = obtenerTextoAlt(archivo.nombre);
-
-    modalMedia.appendChild(imagen);
-  }
-
-  if (archivo.tipo === "video") {
-    const video = document.createElement("video");
-
-    video.src = archivo.url;
-
-    video.controls = true;
-
-    video.autoplay = true;
-
-    video.playsInline = true;
-
-    video.preload = "metadata";
-
-    modalMedia.appendChild(video);
-  }
-
-  modalCounter.textContent = `${indiceActual + 1} / ${archivosGaleria.length}`;
-}
-
-/* =========================================================
-SIGUIENTE
-========================================================= */
-
-function siguienteArchivo() {
-  if (archivosGaleria.length === 0) {
-    return;
-  }
-
-  indiceActual++;
-
-  if (indiceActual >= archivosGaleria.length) {
-    indiceActual = 0;
-  }
-
-  mostrarArchivoActual();
-}
-
-/* =========================================================
-ANTERIOR
-========================================================= */
-
-function anteriorArchivo() {
-  if (archivosGaleria.length === 0) {
-    return;
-  }
-
-  indiceActual--;
-
-  if (indiceActual < 0) {
-    indiceActual = archivosGaleria.length - 1;
-  }
-
-  mostrarArchivoActual();
-}
-
-/* =========================================================
-CERRAR MODAL
-========================================================= */
-
-function cerrarGaleria() {
   modal.classList.remove("activo");
+  document.body.style.overflow = "auto";
 
-  modal.setAttribute("aria-hidden", "true");
-
-  modalMedia.innerHTML = "";
-
-  document.body.style.overflow = "";
+  if (imagenGrande) {
+    setTimeout(function () {
+      imagenGrande.src = "";
+    }, 300);
+  }
 }
 
-/* =========================================================
-EVENTOS
-========================================================= */
+// ==========================================
+// EVENTOS DOM
+// ==========================================
 
-/* Botón cargar más */
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("modal");
 
-botonCargarMas.addEventListener("click", cargarMasArchivos);
-
-/* Botón cerrar */
-
-botonCerrar.addEventListener("click", cerrarGaleria);
-
-/* Botón siguiente */
-
-botonSiguiente.addEventListener("click", siguienteArchivo);
-
-/* Botón anterior */
-
-botonAnterior.addEventListener("click", anteriorArchivo);
-
-/* Click fuera del contenido */
-
-modal.addEventListener("click", function (event) {
-  if (event.target === modal) {
-    cerrarGaleria();
+  if (modal) {
+    modal.addEventListener("click", function (event) {
+      if (event.target === modal) {
+        cerrarImagen();
+      }
+    });
   }
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      cerrarImagen();
+    }
+  });
+
+  cargarMasFotos();
+  cargarVideos();
+  mostrarGaleria("fotos");
 });
-
-/* =========================================================
-   TECLADO
-========================================================= */
-
-document.addEventListener("keydown", function (event) {
-  if (!modal.classList.contains("activo")) {
-    return;
-  }
-
-  if (event.key === "Escape") {
-    cerrarGaleria();
-  }
-
-  if (event.key === "ArrowRight") {
-    siguienteArchivo();
-  }
-
-  if (event.key === "ArrowLeft") {
-    anteriorArchivo();
-  }
-});
-
-/* =========================================================
-   INICIAR
-========================================================= */
-
-cargarGaleria();

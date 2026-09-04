@@ -15,15 +15,9 @@
   --borde: rgba(255, 0, 0, 0.25);
 }
 
-/* =========================================
-   RESET
-========================================= */
-
 * {
   margin: 0;
-
   padding: 0;
-
   box-sizing: border-box;
 }
 
@@ -33,35 +27,25 @@ html {
 
 body {
   background: var(--negro);
-
   color: var(--blanco);
-
   font-family: "Montserrat", sans-serif;
-
   overflow-x: hidden;
 }
 
 img {
   display: block;
-
   max-width: 100%;
 }
 
 a {
   text-decoration: none;
-
   color: inherit;
 }
 
 ::selection {
   background: var(--rojo);
-
   color: white;
 }
-
-/* =========================================
-   SCROLLBAR
-========================================= */
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -73,105 +57,73 @@ a {
 
 ::-webkit-scrollbar-thumb {
   background: var(--rojo);
-
   box-shadow: 0 0 10px red;
 }
 
-/* =========================================
+/* ==========================================
    NAVBAR
-========================================= */
+========================================== */
 
 .navbar {
   position: fixed;
-
   top: 0;
-
   left: 0;
-
   width: 100%;
-
   z-index: 1000;
-
   padding: 18px 5%;
-
   background: rgba(0, 0, 0, 0.94);
-
   backdrop-filter: blur(15px);
-
   border-bottom: 1px solid rgba(255, 0, 0, 0.3);
 }
 
 .nav-container {
   max-width: 1400px;
-
   margin: auto;
-
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
 }
 
 .nav-logo {
   font-family: "Anton", sans-serif;
-
   font-size: 25px;
-
   font-weight: 400;
-
   letter-spacing: 1px;
 }
 
 .nav-logo span {
   color: var(--rojo);
-
   text-shadow: 0 0 10px red;
 }
 
 .nav-links {
   display: flex;
-
   gap: 30px;
 }
 
 .nav-links a {
   position: relative;
-
   color: #aaa;
-
   font-size: 11px;
-
   font-weight: 700;
-
   letter-spacing: 1px;
-
   transition: 0.3s;
 }
 
 .nav-links a:hover {
   color: white;
-
   text-shadow: 0 0 10px red;
 }
 
 .nav-links a::after {
   content: "";
-
   position: absolute;
-
   left: 0;
-
   bottom: -8px;
-
   width: 0;
-
   height: 2px;
-
   background: var(--rojo);
-
   box-shadow: 0 0 8px red;
-
   transition: 0.3s;
 }
 
@@ -181,73 +133,47 @@ a {
 
 .nav-button {
   padding: 12px 24px;
-
   background: linear-gradient(135deg, #ff0000, #ff4500);
-
   color: white;
-
   font-size: 11px;
-
   font-weight: 800;
-
   letter-spacing: 1px;
-
   box-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
-
   transition: 0.3s;
 }
 
 .nav-button:hover {
   transform: translateY(-2px);
-
   box-shadow:
     0 0 15px red,
     0 0 30px rgba(255, 69, 0, 0.4);
 }
 
-/* =========================================
+/* ==========================================
    HERO
-========================================= */
+========================================== */
 
 .hero {
   position: relative;
-
   min-height: 100vh;
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   text-align: center;
-
   overflow: hidden;
-
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.82), rgba(60, 0, 0, 0.3)),
-    url("../img/fondo.jpg");
-
+  background: url("../img/fotos/grupalarriba.jpeg");
   background-size: cover;
-
   background-position: center;
 }
 
 .hero::before {
   content: "";
-
   position: absolute;
-
   top: 0;
-
   left: 0;
-
   width: 100%;
-
   height: 4px;
-
   background: linear-gradient(90deg, #ff0000, #ff6a00, #ffcc00, #ff0000);
-
   box-shadow:
     0 0 10px red,
     0 0 30px red,
@@ -256,9 +182,7 @@ a {
 
 .hero-overlay {
   position: absolute;
-
   inset: 0;
-
   background: radial-gradient(
     circle at center,
     transparent 10%,
@@ -269,41 +193,29 @@ a {
 
 .hero-content {
   position: relative;
-
   z-index: 2;
-
   padding: 120px 20px 80px;
 }
 
 .hero-small {
   color: var(--rojo);
-
   font-size: 11px;
-
   font-weight: 800;
-
   letter-spacing: 5px;
-
   margin-bottom: 25px;
-
   text-shadow: 0 0 8px red;
 }
 
 .hero h1 {
   font-family: "Anton", sans-serif;
-
   font-size: clamp(70px, 12vw, 150px);
-
   font-weight: 400;
-
   line-height: 0.88;
-
   letter-spacing: 2px;
 }
 
 .hero h1 span {
   display: block;
-
   background: linear-gradient(
     180deg,
     #ffe600 0%,
@@ -311,66 +223,46 @@ a {
     #ff2600 55%,
     #a00000 100%
   );
-
   -webkit-background-clip: text;
-
   background-clip: text;
-
   -webkit-text-fill-color: transparent;
-
   filter: drop-shadow(0 0 5px #ff0000) drop-shadow(0 0 15px #ff4500)
     drop-shadow(0 0 30px rgba(255, 69, 0, 0.5));
 }
 
 .hero-description {
   margin-top: 35px;
-
   color: #ddd;
-
   font-size: 16px;
-
   line-height: 1.8;
 }
 
 .hero-buttons {
   display: flex;
-
   justify-content: center;
-
   gap: 15px;
-
   margin-top: 40px;
 }
 
 .btn {
   display: inline-flex;
-
   align-items: center;
-
   justify-content: center;
-
   padding: 16px 30px;
-
   font-size: 11px;
-
   font-weight: 800;
-
   letter-spacing: 1px;
-
   transition: 0.3s;
 }
 
 .btn-primary {
   background: linear-gradient(135deg, #ff0000, #ff4500);
-
   border: 1px solid #ff4500;
-
   box-shadow: 0 0 10px red;
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px);
-
+  transform: translateY(-8px);
   box-shadow:
     0 0 15px red,
     0 0 35px rgba(255, 69, 0, 0.5);
@@ -378,71 +270,50 @@ a {
 
 .btn-secondary {
   background: rgba(0, 0, 0, 0.6);
-
   border: 1px solid var(--rojo);
 }
 
 .btn-secondary:hover {
   background: var(--rojo);
-
   box-shadow: 0 0 15px red;
 }
 
 .hero-bottom {
   position: absolute;
-
   bottom: 30px;
-
   left: 50%;
-
   transform: translateX(-50%);
-
   display: flex;
-
   gap: 14px;
-
   z-index: 2;
-
   color: #777;
-
   font-size: 9px;
-
   font-weight: 800;
-
   letter-spacing: 3px;
-
   white-space: nowrap;
 }
 
 .hero-bottom span:nth-child(even) {
   color: var(--rojo);
-
   text-shadow: 0 0 10px red;
 }
 
-/* =========================================
+/* ==========================================
    SECCIONES
-========================================= */
+========================================== */
 
 .section {
   max-width: 1400px;
-
   margin: auto;
-
   padding: 120px 5%;
 }
 
 .section::before {
   content: "";
-
   display: block;
-
   width: 90%;
-
   height: 1px;
-
   margin: -120px auto 119px;
-
   background: linear-gradient(
     90deg,
     transparent,
@@ -453,57 +324,42 @@ a {
 
 .eyebrow {
   margin-bottom: 18px;
-
   color: var(--rojo);
-
   font-size: 10px;
-
   font-weight: 800;
-
   letter-spacing: 4px;
-
   text-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
 }
 
 h2 {
   font-family: "Anton", sans-serif;
-
   font-size: clamp(50px, 7vw, 95px);
-
   font-weight: 400;
-
   line-height: 0.95;
 }
 
 h2 span {
   display: block;
-
   color: var(--rojo);
-
   text-shadow:
     0 0 8px red,
     0 0 20px rgba(255, 0, 0, 0.4);
 }
 
-/* =========================================
+/* ==========================================
    NOSOTROS
-========================================= */
+========================================== */
 
 .intro-grid {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 100px;
-
   align-items: end;
 }
 
 .intro-text {
   color: #999;
-
   font-size: 16px;
-
   line-height: 1.9;
 }
 
@@ -517,43 +373,30 @@ h2 span {
 
 .fire-text {
   font-family: "Anton", sans-serif;
-
   font-size: 60px;
-
   font-weight: 400;
-
   background: linear-gradient(180deg, #fff000, #ff7b00, #ff0000);
-
   -webkit-background-clip: text;
-
   background-clip: text;
-
   -webkit-text-fill-color: transparent;
-
   filter: drop-shadow(0 0 7px #ff0000) drop-shadow(0 0 18px #ff6a00);
 }
 
-/* =========================================
+/* ==========================================
    STATS
-========================================= */
+========================================== */
 
 .stats {
   display: grid;
-
   grid-template-columns: repeat(4, 1fr);
-
   background: #050505;
-
   border-top: 1px solid var(--borde);
-
   border-bottom: 1px solid var(--borde);
 }
 
 .stat {
   padding: 50px 20px;
-
   text-align: center;
-
   border-right: 1px solid var(--borde);
 }
 
@@ -563,73 +406,48 @@ h2 span {
 
 .stat strong {
   display: block;
-
   font-family: "Anton", sans-serif;
-
   font-size: 55px;
-
   font-weight: 400;
-
   background: linear-gradient(180deg, #ffcc00, #ff6a00, #ff0000);
-
   -webkit-background-clip: text;
-
   background-clip: text;
-
   -webkit-text-fill-color: transparent;
-
   filter: drop-shadow(0 0 8px red);
 }
 
 .stat span {
   display: block;
-
   margin-top: 10px;
-
   color: #666;
-
   font-size: 9px;
-
   font-weight: 800;
-
   letter-spacing: 2px;
 }
 
-/* =========================================
+/* ==========================================
    EXPERIENCE
-========================================= */
+========================================== */
 
 .experience {
   position: relative;
-
   min-height: 650px;
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   text-align: center;
-
   padding: 100px 20px;
-
   background:
     linear-gradient(
       rgba(0, 0, 0, 0.65),
       rgba(70, 0, 0, 0.35),
       rgba(0, 0, 0, 0.95)
     ),
-    url("../img/trocha y barro.jpeg");
-
+    url("../img/fotos/grupalarriba.jpeg");
   background-size: cover;
-
   background-position: center;
-
   background-attachment: fixed;
-
   border-top: 2px solid red;
-
   border-bottom: 2px solid red;
 }
 
@@ -643,71 +461,56 @@ h2 span {
 
 .experience-content > p:last-child {
   margin-top: 35px;
-
   color: #ccc;
-
   line-height: 1.8;
 }
 
-/* =========================================
-   RUTAS
-========================================= */
+/* ==========================================
+   ENCABEZADOS
+========================================== */
 
 .section-heading {
   display: flex;
-
   align-items: end;
-
   justify-content: space-between;
-
   gap: 50px;
-
   margin-bottom: 60px;
 }
 
 .heading-description {
   max-width: 380px;
-
   color: #888;
-
   font-size: 14px;
-
   line-height: 1.8;
 }
 
+/* ==========================================
+   RUTAS
+========================================== */
+
 .routes-grid {
   display: grid;
-
   grid-template-columns: repeat(3, 1fr);
-
   gap: 15px;
 }
 
 .route-card {
   position: relative;
-
   height: 500px;
-
   overflow: hidden;
-
   border: 1px solid rgba(255, 0, 0, 0.2);
-
   transition: 0.4s;
 }
 
 .route-card:hover {
   border-color: red;
-
   box-shadow: 0 0 25px rgba(255, 0, 0, 0.25);
 }
 
 .route-card img {
   width: 100%;
-
   height: 100%;
-
   object-fit: cover;
-
   transition: 0.6s;
 }
 
@@ -717,79 +520,56 @@ h2 span {
 
 .route-card::after {
   content: "";
-
   position: absolute;
-
   inset: 0;
-
   background: linear-gradient(transparent 25%, rgba(0, 0, 0, 0.95));
 }
 
 .route-overlay {
   position: absolute;
-
   left: 30px;
-
   right: 30px;
-
   bottom: 30px;
-
   z-index: 2;
 }
 
 .route-overlay span {
   color: var(--rojo);
-
   font-size: 9px;
-
   font-weight: 800;
-
   letter-spacing: 2px;
 }
 
 .route-overlay h3 {
   margin-top: 10px;
-
   font-family: "Anton", sans-serif;
-
   font-size: 55px;
-
   font-weight: 400;
 }
 
 .route-overlay p {
   margin-top: 8px;
-
   color: #ccc;
-
   font-size: 12px;
 }
 
-/* =========================================
+/* ==========================================
    EPIC
-========================================= */
+========================================== */
 
 .epic-section {
   position: relative;
-
   min-height: 750px;
-
   display: flex;
-
   align-items: center;
-
   overflow: hidden;
-
   border-top: 2px solid red;
-
   border-bottom: 2px solid red;
 }
 
 .epic-background {
   position: absolute;
-
   inset: 0;
-
   background:
     linear-gradient(
       90deg,
@@ -797,26 +577,18 @@ h2 span {
       rgba(0, 0, 0, 0.8) 40%,
       rgba(60, 0, 0, 0.2) 100%
     ),
-    url("../img/portada de TyB.jpeg");
-
+    url("../img/fotos/trocha y barro.jpeg");
   background-size: cover;
-
   background-position: center;
-
   filter: saturate(1.2);
 }
 
 .epic-content {
   position: relative;
-
   z-index: 2;
-
   max-width: 1400px;
-
   width: 100%;
-
   margin: auto;
-
   padding: 120px 5%;
 }
 
@@ -826,109 +598,77 @@ h2 span {
 
 .epic-content h2 span {
   background: linear-gradient(180deg, #fff000, #ff6a00, #ff0000);
-
   -webkit-background-clip: text;
-
   background-clip: text;
-
   -webkit-text-fill-color: transparent;
-
   filter: drop-shadow(0 0 8px red) drop-shadow(0 0 25px rgba(255, 69, 0, 0.6));
 }
 
 .epic-line {
   width: 120px;
-
   height: 3px;
-
   margin: 30px 0;
-
   background: linear-gradient(90deg, red, orange);
-
   box-shadow: 0 0 10px red;
 }
 
 .epic-intro {
   color: white;
-
   font-size: 15px;
-
   font-weight: 800;
-
   letter-spacing: 3px;
 }
 
 .epic-text {
   max-width: 650px;
-
   margin-top: 25px;
-
   color: #bbb;
-
   font-size: 15px;
-
   line-height: 1.9;
 }
 
 .epic-data {
   display: flex;
-
   gap: 50px;
-
   margin-top: 45px;
 }
 
 .epic-data div {
   display: flex;
-
   flex-direction: column;
 }
 
 .epic-data strong {
   font-family: "Anton", sans-serif;
-
   font-size: 38px;
-
   font-weight: 400;
-
   color: var(--rojo);
-
   text-shadow: 0 0 10px red;
 }
 
 .epic-data span {
   margin-top: 5px;
-
   color: #777;
-
   font-size: 8px;
-
   font-weight: 800;
-
   letter-spacing: 2px;
 }
 
-/* =========================================
-   FOTOS EPIC
-========================================= */
+/* ==========================================
+   GALERÍA EPIC ORIGINAL
+========================================== */
 
 .epic-gallery {
   display: grid;
-
   grid-template-columns: repeat(3, 1fr);
-
   grid-auto-rows: 300px;
-
   gap: 15px;
 }
 
 .epic-photo {
   position: relative;
-
   overflow: hidden;
-
   cursor: pointer;
-
   border: 1px solid rgba(255, 0, 0, 0.2);
 }
 
@@ -942,11 +682,8 @@ h2 span {
 
 .epic-photo img {
   width: 100%;
-
   height: 100%;
-
   object-fit: cover;
-
   transition: 0.6s;
 }
 
@@ -954,67 +691,266 @@ h2 span {
   transform: scale(1.08);
 }
 
-.epic-photo::after {
+/* ==========================================
+   NUEVA GALERÍA MASIVA EPIC
+========================================== */
+
+.epic-filtros {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 15px;
+
+  margin-bottom: 25px;
+}
+
+.epic-filtro {
+  padding: 14px 28px;
+
+  background: #030303;
+
+  border: 1px solid rgba(255, 0, 0, 0.35);
+
+  color: #999999;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.epic-filtro:hover {
+  color: #ffffff;
+
+  border-color: #ff0000;
+
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+
+.epic-filtro.activo {
+  color: #ffffff;
+
+  background: linear-gradient(135deg, #ff0000, #ff4500);
+
+  border-color: #ff4500;
+
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
+}
+
+.epic-contador {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 15px;
+
+  margin-bottom: 35px;
+
+  color: #666666;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+}
+
+.epic-contador span:first-child {
+  color: #ff0000;
+
+  text-shadow: 0 0 8px red;
+}
+
+.epic-gallery-nueva {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 12px;
+}
+
+.epic-photo-nueva {
+  position: relative;
+
+  height: 280px;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  border: 1px solid rgba(255, 0, 0, 0.2);
+
+  background: #080808;
+
+  transition: 0.4s;
+}
+
+.epic-photo-nueva::after {
   content: "";
 
   position: absolute;
 
   inset: 0;
 
-  background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.8));
+  pointer-events: none;
+
+  background: linear-gradient(transparent 45%, rgba(0, 0, 0, 0.75));
+
+  opacity: 0;
+
+  transition: 0.4s;
 }
 
-.epic-photo:hover {
-  border-color: red;
+.epic-photo-nueva img {
+  width: 100%;
 
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.25);
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.6s,
+    filter 0.4s;
 }
 
-.photo-number {
-  position: absolute;
+.epic-photo-nueva:hover {
+  border-color: #ff0000;
 
-  right: 20px;
+  box-shadow: 0 0 18px rgba(255, 0, 0, 0.4);
 
-  bottom: 20px;
-
-  z-index: 2;
-
-  color: var(--rojo);
-
-  font-family: "Anton", sans-serif;
-
-  font-size: 25px;
-
-  text-shadow: 0 0 10px red;
+  transform: translateY(-3px);
 }
 
-/* =========================================
+.epic-photo-nueva:hover img {
+  transform: scale(1.08);
+
+  filter: saturate(1.15);
+}
+
+.epic-photo-nueva:hover::after {
+  opacity: 1;
+}
+
+.epic-cargar-container {
+  display: flex;
+
+  justify-content: center;
+
+  margin-top: 45px;
+}
+
+.epic-cargar {
+  cursor: pointer;
+
+  border: none;
+
+  min-width: 220px;
+}
+
+.epic-videos {
+  display: none;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 25px;
+}
+
+.epic-video-card {
+  position: relative;
+
+  overflow: hidden;
+
+  background: #080808;
+
+  border: 1px solid rgba(255, 0, 0, 0.25);
+
+  transition: 0.4s;
+}
+
+.epic-video-card:hover {
+  border-color: #ff0000;
+
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.35);
+
+  transform: translateY(-3px);
+}
+
+.epic-video-card video {
+  display: block;
+
+  width: 100%;
+
+  height: 450px;
+
+  object-fit: cover;
+
+  background: #000000;
+}
+
+.epic-video-titulo {
+  padding: 16px 20px;
+
+  color: #ffffff;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  border-top: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+.epic-photo-nueva {
+  animation: epicEntrada 0.5s ease both;
+}
+
+@keyframes epicEntrada {
+  from {
+    opacity: 0;
+
+    transform: translateY(20px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ==========================================
    GALERÍA GENERAL
-========================================= */
+========================================== */
 
 .galeria {
   display: grid;
-
   grid-template-columns: repeat(3, 1fr);
-
   gap: 15px;
 }
 
 .gallery-item {
   position: relative;
-
   height: 350px;
-
   overflow: hidden;
-
   cursor: pointer;
-
   border: 1px solid rgba(255, 0, 0, 0.15);
 }
 
 .gallery-large {
   grid-row: span 2;
-
   height: 715px;
 }
 
@@ -1024,11 +960,8 @@ h2 span {
 
 .gallery-item img {
   width: 100%;
-
   height: 100%;
-
   object-fit: cover;
-
   transition: 0.6s;
 }
 
@@ -1038,69 +971,92 @@ h2 span {
 
 .gallery-item::after {
   content: "";
-
   position: absolute;
-
   inset: 0;
-
   background: linear-gradient(transparent 40%, rgba(0, 0, 0, 0.9));
 }
 
 .gallery-item:hover {
   border-color: red;
-
   box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
 }
 
 .gallery-caption {
   position: absolute;
-
   left: 20px;
-
   right: 20px;
-
   bottom: 20px;
-
   z-index: 2;
-
   display: flex;
-
   justify-content: space-between;
 }
 
 .gallery-caption strong {
   font-size: 11px;
-
   letter-spacing: 2px;
 }
 
-.gallery-caption span {
-  color: var(--rojo);
+/* ==========================================
+   PRÓXIMO EVENTO
+========================================== */
 
-  font-size: 10px;
+.proximo-evento {
+  position: relative;
 
-  font-weight: 800;
-}
-
-/* =========================================
-   CTA
-========================================= */
-
-.cta {
-  padding: 150px 20px;
+  padding: 140px 20px;
 
   text-align: center;
+
+  overflow: hidden;
 
   background: radial-gradient(circle, #500000, #150000 40%, #030303 80%);
 
   border-top: 2px solid red;
+
+  border-bottom: 2px solid red;
 }
 
-.cta h2 {
+.proximo-evento::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ff0000,
+    #ff6a00,
+    #ffc400,
+    #ff0000,
+    transparent
+  );
+
+  box-shadow: 0 0 15px red;
+}
+
+.proximo-evento-content {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 850px;
+
+  margin: auto;
+}
+
+.proximo-evento h2 {
   font-size: clamp(60px, 10vw, 130px);
 }
 
-.cta h2 span {
+.proximo-evento h2 span {
   background: linear-gradient(180deg, #fff000, #ff6a00, #ff0000);
 
   -webkit-background-clip: text;
@@ -1112,177 +1068,230 @@ h2 span {
   filter: drop-shadow(0 0 10px red);
 }
 
-.cta-content > p {
-  max-width: 600px;
+.proximo-line {
+  width: 120px;
 
-  margin: 30px auto;
+  height: 3px;
+
+  margin: 35px auto;
+
+  background: linear-gradient(90deg, red, orange);
+
+  box-shadow: 0 0 10px red;
+}
+
+.evento-status {
+  display: inline-flex;
+
+  padding: 12px 25px;
+
+  margin-bottom: 25px;
+
+  color: #ffffff;
+
+  background: linear-gradient(135deg, #ff0000, #ff4500);
+
+  border: 1px solid #ff4500;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+.proximo-evento-content > p:not(.eyebrow) {
+  max-width: 650px;
+
+  margin: 0 auto 35px;
 
   color: #aaa;
 
   line-height: 1.8;
 }
 
+/* ==========================================
+   CTA
+========================================== */
+
+.cta {
+  padding: 150px 20px;
+  text-align: center;
+  background: radial-gradient(circle, #500000, #150000 40%, #030303 80%);
+  border-top: 2px solid red;
+}
+
+.cta h2 {
+  font-size: clamp(60px, 10vw, 130px);
+}
+
+.cta h2 span {
+  background: linear-gradient(180deg, #fff000, #ff6a00, #ff0000);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 10px red);
+}
+
+.cta-content > p {
+  max-width: 600px;
+  margin: 30px auto;
+  color: #aaa;
+  line-height: 1.8;
+}
+
 .contact-buttons {
   display: flex;
-
   justify-content: center;
-
   gap: 15px;
 }
 
-/* =========================================
+/* ==========================================
+   BOTONES CTA
+========================================== */
+
+.btn-dark {
+  background: #030303;
+
+  border: 1px solid #ff0000;
+
+  color: #ffffff;
+
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+
+.btn-dark:hover {
+  background: #ff0000;
+
+  box-shadow: 0 0 20px red;
+
+  transform: translateY(-3px);
+}
+
+.btn-instagram {
+  background: linear-gradient(135deg, #ff0000, #ff4500);
+
+  border: 1px solid #ff4500;
+
+  color: #ffffff;
+
+  box-shadow: 0 0 10px red;
+}
+
+.btn-instagram:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 0 20px red;
+}
+
+/* ==========================================
    FOOTER
-========================================= */
+========================================== */
 
 footer {
   padding: 60px 20px;
-
   text-align: center;
-
   background: #000;
 }
 
 .footer-logo {
   font-family: "Anton", sans-serif;
-
   font-size: 35px;
 }
 
 .footer-logo span {
   color: var(--rojo);
-
   text-shadow: 0 0 10px red;
 }
 
 footer p {
   margin-top: 10px;
-
   color: #555;
-
   font-size: 9px;
-
   font-weight: 800;
-
   letter-spacing: 3px;
 }
 
 .footer-social {
   display: flex;
-
   justify-content: center;
-
   gap: 15px;
-
   margin-top: 30px;
-
   color: #888;
-
   font-size: 10px;
-
   font-weight: 700;
 }
 
 .footer-social a:hover {
   color: var(--rojo);
-
   text-shadow: 0 0 10px red;
 }
 
 .copyright {
   display: block;
-
   margin-top: 30px;
-
   color: #444;
-
   font-size: 9px;
 }
 
-/* =========================================
+/* ==========================================
    MODAL
-========================================= */
+========================================== */
 
 .modal {
   position: fixed;
-
   inset: 0;
-
   z-index: 9999;
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   padding: 30px;
-
   background: rgba(0, 0, 0, 0.97);
-
   opacity: 0;
-
   visibility: hidden;
-
   transition: 0.3s;
 }
 
 .modal.activo {
   opacity: 1;
-
   visibility: visible;
 }
 
 .modal img {
   max-width: 95vw;
-
   max-height: 90vh;
-
   object-fit: contain;
-
   border: 1px solid red;
-
   box-shadow: 0 0 25px red;
 }
 
 .cerrar {
   position: absolute;
-
   top: 25px;
-
   right: 30px;
-
   width: 50px;
-
   height: 50px;
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   background: #000;
-
   border: 1px solid red;
-
   color: red;
-
   font-size: 35px;
-
   cursor: pointer;
-
   box-shadow: 0 0 10px red;
 }
 
 .cerrar:hover {
   background: red;
-
   color: white;
 }
 
-/* =========================================
+/* ==========================================
    TABLET
-========================================= */
+========================================== */
 
 @media (max-width: 950px) {
   .nav-links {
@@ -1291,7 +1300,6 @@ footer p {
 
   .intro-grid {
     grid-template-columns: 1fr;
-
     gap: 50px;
   }
 
@@ -1330,11 +1338,23 @@ footer p {
 
     height: 350px;
   }
+
+  .epic-gallery-nueva {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .epic-videos {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .epic-video-card video {
+    height: 350px;
+  }
 }
 
-/* =========================================
+/* ==========================================
    CELULAR
-========================================= */
+========================================== */
 
 @media (max-width: 600px) {
   .navbar {
@@ -1462,6 +1482,64 @@ footer p {
     height: 300px;
   }
 
+  /* GALERÍA EPIC NUEVA */
+
+  .epic-filtros {
+    gap: 10px;
+  }
+
+  .epic-filtro {
+    flex: 1;
+
+    padding: 13px 10px;
+
+    font-size: 8px;
+  }
+
+  .epic-contador {
+    font-size: 7px;
+
+    letter-spacing: 2px;
+  }
+
+  .epic-gallery-nueva {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+  }
+
+  .epic-photo-nueva {
+    height: 220px;
+  }
+
+  .epic-videos {
+    grid-template-columns: 1fr;
+  }
+
+  .epic-video-card video {
+    height: 300px;
+  }
+
+  .epic-cargar {
+    width: 100%;
+  }
+
+  /* PRÓXIMO EVENTO */
+
+  .proximo-evento {
+    padding: 100px 20px;
+  }
+
+  .proximo-evento h2 {
+    font-size: 65px;
+  }
+
+  .evento-status {
+    font-size: 8px;
+
+    letter-spacing: 2px;
+  }
+
   .cta {
     padding: 100px 20px;
   }
@@ -1475,4 +1553,60 @@ footer p {
 
     align-items: center;
   }
+}
+
+/* ==========================================
+   TARJETAS Y REPRODUCTOR DE VIDEO EPIC
+   ========================================== */
+
+/* Contenedor tipo tarjeta para los videos */
+/* Estructura para que los videos mantengan su calidad original */
+.epic-video {
+  position: relative;
+  background: #000000; /* Fondo negro elegante para rellenar espacios libres */
+  border: 1px solid #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.epic-video:hover {
+  transform: translateY(-5px);
+  border-color: #ff2a00;
+  box-shadow: 0 8px 25px rgba(255, 42, 0, 0.25);
+}
+
+/* CAMBIO CLAVE: object-fit: contain */
+.epic-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Mantiene la proporción y resolución real del video sin estirarlo ni recortarlo */
+  display: block;
+  background-color: #000;
+}
+
+/* Etiqueta con el número de video (estilo coherente con fotos) */
+.video-number {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #ff2a00;
+  border: 1px solid #ff2a00;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  pointer-events: none;
+  z-index: 2;
 }
