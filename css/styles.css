@@ -2,68 +2,50 @@
   --negro: #030303;
   --negro-2: #080808;
   --negro-3: #111111;
-
   --rojo: #ff0000;
   --rojo-neon: #ff1744;
-
   --naranja: #ff6a00;
   --amarillo: #ffc400;
-
   --blanco: #ffffff;
   --gris: #999999;
-
   --borde: rgba(255, 0, 0, 0.25);
 }
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 html {
   scroll-behavior: smooth;
 }
-
 body {
   background: var(--negro);
   color: var(--blanco);
   font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
 }
-
 img {
   display: block;
   max-width: 100%;
 }
-
 a {
   text-decoration: none;
   color: inherit;
 }
-
 ::selection {
   background: var(--rojo);
   color: white;
 }
-
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
   background: #000;
 }
-
 ::-webkit-scrollbar-thumb {
   background: var(--rojo);
   box-shadow: 0 0 10px red;
-}
-
-/* ==========================================
-   NAVBAR
-========================================== */
-
+} /* ========================================== NAVBAR ========================================== */
 .navbar {
   position: fixed;
   top: 0;
@@ -75,7 +57,6 @@ a {
   backdrop-filter: blur(15px);
   border-bottom: 1px solid rgba(255, 0, 0, 0.3);
 }
-
 .nav-container {
   max-width: 1400px;
   margin: auto;
@@ -83,24 +64,20 @@ a {
   align-items: center;
   justify-content: space-between;
 }
-
 .nav-logo {
   font-family: "Anton", sans-serif;
   font-size: 25px;
   font-weight: 400;
   letter-spacing: 1px;
 }
-
 .nav-logo span {
   color: var(--rojo);
   text-shadow: 0 0 10px red;
 }
-
 .nav-links {
   display: flex;
   gap: 30px;
 }
-
 .nav-links a {
   position: relative;
   color: #aaa;
@@ -109,12 +86,10 @@ a {
   letter-spacing: 1px;
   transition: 0.3s;
 }
-
 .nav-links a:hover {
   color: white;
   text-shadow: 0 0 10px red;
 }
-
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -126,11 +101,9 @@ a {
   box-shadow: 0 0 8px red;
   transition: 0.3s;
 }
-
 .nav-links a:hover::after {
   width: 100%;
 }
-
 .nav-button {
   padding: 12px 24px;
   background: linear-gradient(135deg, #ff0000, #ff4500);
@@ -141,18 +114,12 @@ a {
   box-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
   transition: 0.3s;
 }
-
 .nav-button:hover {
   transform: translateY(-2px);
   box-shadow:
     0 0 15px red,
     0 0 30px rgba(255, 69, 0, 0.4);
-}
-
-/* ==========================================
-   HERO
-========================================== */
-
+} /* ========================================== HERO ========================================== */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -165,7 +132,6 @@ a {
   background-size: cover;
   background-position: center;
 }
-
 .hero::before {
   content: "";
   position: absolute;
@@ -179,24 +145,21 @@ a {
     0 0 30px red,
     0 0 60px red;
 }
-
 .hero-overlay {
   position: absolute;
   inset: 0;
   background: radial-gradient(
     circle at center,
-    transparent 10%,
-    rgba(0, 0, 0, 0.5) 55%,
-    #000 100%
+    transparent 15%,
+    rgba(0, 0, 0, 0.35) 50%,
+    rgba(0, 0, 0, 0.85) 100%
   );
 }
-
 .hero-content {
   position: relative;
   z-index: 2;
   padding: 120px 20px 80px;
 }
-
 .hero-small {
   color: var(--rojo);
   font-size: 11px;
@@ -205,7 +168,6 @@ a {
   margin-bottom: 25px;
   text-shadow: 0 0 8px red;
 }
-
 .hero h1 {
   font-family: "Anton", sans-serif;
   font-size: clamp(70px, 12vw, 150px);
@@ -213,7 +175,6 @@ a {
   line-height: 0.88;
   letter-spacing: 2px;
 }
-
 .hero h1 span {
   display: block;
   background: linear-gradient(
@@ -229,21 +190,18 @@ a {
   filter: drop-shadow(0 0 5px #ff0000) drop-shadow(0 0 15px #ff4500)
     drop-shadow(0 0 30px rgba(255, 69, 0, 0.5));
 }
-
 .hero-description {
   margin-top: 35px;
   color: #ddd;
   font-size: 16px;
   line-height: 1.8;
 }
-
 .hero-buttons {
   display: flex;
   justify-content: center;
   gap: 15px;
   margin-top: 40px;
 }
-
 .btn {
   display: inline-flex;
   align-items: center;
@@ -254,30 +212,25 @@ a {
   letter-spacing: 1px;
   transition: 0.3s;
 }
-
 .btn-primary {
   background: linear-gradient(135deg, #ff0000, #ff4500);
   border: 1px solid #ff4500;
   box-shadow: 0 0 10px red;
 }
-
 .btn-primary:hover {
   transform: translateY(-8px);
   box-shadow:
     0 0 15px red,
     0 0 35px rgba(255, 69, 0, 0.5);
 }
-
 .btn-secondary {
   background: rgba(0, 0, 0, 0.6);
   border: 1px solid var(--rojo);
 }
-
 .btn-secondary:hover {
   background: var(--rojo);
   box-shadow: 0 0 15px red;
 }
-
 .hero-bottom {
   position: absolute;
   bottom: 30px;
@@ -292,22 +245,15 @@ a {
   letter-spacing: 3px;
   white-space: nowrap;
 }
-
 .hero-bottom span:nth-child(even) {
   color: var(--rojo);
   text-shadow: 0 0 10px red;
-}
-
-/* ==========================================
-   SECCIONES
-========================================== */
-
+} /* ========================================== SECCIONES ========================================== */
 .section {
   max-width: 1400px;
   margin: auto;
   padding: 120px 5%;
 }
-
 .section::before {
   content: "";
   display: block;
@@ -321,7 +267,6 @@ a {
     transparent
   );
 }
-
 .eyebrow {
   margin-bottom: 18px;
   color: var(--rojo);
@@ -330,47 +275,36 @@ a {
   letter-spacing: 4px;
   text-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
 }
-
 h2 {
   font-family: "Anton", sans-serif;
   font-size: clamp(50px, 7vw, 95px);
   font-weight: 400;
   line-height: 0.95;
 }
-
 h2 span {
   display: block;
   color: var(--rojo);
   text-shadow:
     0 0 8px red,
     0 0 20px rgba(255, 0, 0, 0.4);
-}
-
-/* ==========================================
-   NOSOTROS
-========================================== */
-
+} /* ========================================== NOSOTROS ========================================== */
 .intro-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 100px;
   align-items: end;
 }
-
 .intro-text {
   color: #999;
   font-size: 16px;
   line-height: 1.9;
 }
-
 .intro-text p + p {
   margin-top: 25px;
 }
-
 .intro-text strong {
   color: white;
 }
-
 .fire-text {
   font-family: "Anton", sans-serif;
   font-size: 60px;
@@ -380,12 +314,7 @@ h2 span {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 0 7px #ff0000) drop-shadow(0 0 18px #ff6a00);
-}
-
-/* ==========================================
-   STATS
-========================================== */
-
+} /* ========================================== STATS ========================================== */
 .stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -393,17 +322,14 @@ h2 span {
   border-top: 1px solid var(--borde);
   border-bottom: 1px solid var(--borde);
 }
-
 .stat {
   padding: 50px 20px;
   text-align: center;
   border-right: 1px solid var(--borde);
 }
-
 .stat:last-child {
   border-right: none;
 }
-
 .stat strong {
   display: block;
   font-family: "Anton", sans-serif;
@@ -415,7 +341,6 @@ h2 span {
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 0 8px red);
 }
-
 .stat span {
   display: block;
   margin-top: 10px;
@@ -423,12 +348,7 @@ h2 span {
   font-size: 9px;
   font-weight: 800;
   letter-spacing: 2px;
-}
-
-/* ==========================================
-   EXPERIENCE
-========================================== */
-
+} /* ========================================== EXPERIENCE ========================================== */
 .experience {
   position: relative;
   min-height: 650px;
@@ -450,25 +370,17 @@ h2 span {
   border-top: 2px solid red;
   border-bottom: 2px solid red;
 }
-
 .experience-content {
   max-width: 900px;
 }
-
 .experience h2 {
   font-size: clamp(60px, 10vw, 130px);
 }
-
 .experience-content > p:last-child {
   margin-top: 35px;
   color: #ccc;
   line-height: 1.8;
-}
-
-/* ==========================================
-   ENCABEZADOS
-========================================== */
-
+} /* ========================================== ENCABEZADOS ========================================== */
 .section-heading {
   display: flex;
   align-items: end;
@@ -476,24 +388,17 @@ h2 span {
   gap: 50px;
   margin-bottom: 60px;
 }
-
 .heading-description {
   max-width: 380px;
   color: #888;
   font-size: 14px;
   line-height: 1.8;
-}
-
-/* ==========================================
-   RUTAS
-========================================== */
-
+} /* ========================================== RUTAS ========================================== */
 .routes-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
 }
-
 .route-card {
   position: relative;
   height: 500px;
@@ -501,30 +406,25 @@ h2 span {
   border: 1px solid rgba(255, 0, 0, 0.2);
   transition: 0.4s;
 }
-
 .route-card:hover {
   border-color: red;
   box-shadow: 0 0 25px rgba(255, 0, 0, 0.25);
 }
-
 .route-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: 0.6s;
 }
-
 .route-card:hover img {
   transform: scale(1.08);
 }
-
 .route-card::after {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(transparent 25%, rgba(0, 0, 0, 0.95));
 }
-
 .route-overlay {
   position: absolute;
   left: 30px;
@@ -532,31 +432,23 @@ h2 span {
   bottom: 30px;
   z-index: 2;
 }
-
 .route-overlay span {
   color: var(--rojo);
   font-size: 9px;
   font-weight: 800;
   letter-spacing: 2px;
 }
-
 .route-overlay h3 {
   margin-top: 10px;
   font-family: "Anton", sans-serif;
   font-size: 55px;
   font-weight: 400;
 }
-
 .route-overlay p {
   margin-top: 8px;
   color: #ccc;
   font-size: 12px;
-}
-
-/* ==========================================
-   EPIC
-========================================== */
-
+} /* ========================================== EPIC ========================================== */
 .epic-section {
   position: relative;
   min-height: 750px;
@@ -566,7 +458,6 @@ h2 span {
   border-top: 2px solid red;
   border-bottom: 2px solid red;
 }
-
 .epic-background {
   position: absolute;
   inset: 0;
@@ -582,7 +473,6 @@ h2 span {
   background-position: center;
   filter: saturate(1.2);
 }
-
 .epic-content {
   position: relative;
   z-index: 2;
@@ -591,11 +481,9 @@ h2 span {
   margin: auto;
   padding: 120px 5%;
 }
-
 .epic-content h2 {
   font-size: clamp(65px, 10vw, 140px);
 }
-
 .epic-content h2 span {
   background: linear-gradient(180deg, #fff000, #ff6a00, #ff0000);
   -webkit-background-clip: text;
@@ -603,7 +491,6 @@ h2 span {
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 0 8px red) drop-shadow(0 0 25px rgba(255, 69, 0, 0.6));
 }
-
 .epic-line {
   width: 120px;
   height: 3px;
@@ -611,14 +498,12 @@ h2 span {
   background: linear-gradient(90deg, red, orange);
   box-shadow: 0 0 10px red;
 }
-
 .epic-intro {
   color: white;
   font-size: 15px;
   font-weight: 800;
   letter-spacing: 3px;
 }
-
 .epic-text {
   max-width: 650px;
   margin-top: 25px;
@@ -626,18 +511,15 @@ h2 span {
   font-size: 15px;
   line-height: 1.9;
 }
-
 .epic-data {
   display: flex;
   gap: 50px;
   margin-top: 45px;
 }
-
 .epic-data div {
   display: flex;
   flex-direction: column;
 }
-
 .epic-data strong {
   font-family: "Anton", sans-serif;
   font-size: 38px;
@@ -645,342 +527,254 @@ h2 span {
   color: var(--rojo);
   text-shadow: 0 0 10px red;
 }
-
 .epic-data span {
   margin-top: 5px;
   color: #777;
   font-size: 8px;
   font-weight: 800;
   letter-spacing: 2px;
-}
-
-/* ==========================================
-   GALERÍA EPIC ORIGINAL
-========================================== */
-
+} /* ========================================== GALERÍA EPIC ORIGINAL ========================================== */
 .epic-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 300px;
   gap: 15px;
 }
-
 .epic-photo {
   position: relative;
   overflow: hidden;
   cursor: pointer;
   border: 1px solid rgba(255, 0, 0, 0.2);
 }
-
 .epic-photo-big {
   grid-row: span 2;
 }
-
 .epic-photo-wide {
   grid-column: span 2;
 }
-
 .epic-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: 0.6s;
 }
-
 .epic-photo:hover img {
   transform: scale(1.08);
-}
-
-/* ==========================================
-   NUEVA GALERÍA MASIVA EPIC
-========================================== */
-
+} /* ========================================== NUEVA GALERÍA MASIVA EPIC ========================================== */
 .epic-filtros {
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
   gap: 15px;
-
   margin-bottom: 25px;
 }
-
 .epic-filtro {
   padding: 14px 28px;
-
   background: #030303;
-
   border: 1px solid rgba(255, 0, 0, 0.35);
-
   color: #999999;
-
   font-family: "Montserrat", sans-serif;
-
   font-size: 10px;
-
   font-weight: 800;
-
   letter-spacing: 2px;
-
   cursor: pointer;
-
   transition: 0.3s;
 }
-
 .epic-filtro:hover {
   color: #ffffff;
-
   border-color: #ff0000;
-
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
 }
-
 .epic-filtro.activo {
   color: #ffffff;
-
   background: linear-gradient(135deg, #ff0000, #ff4500);
-
   border-color: #ff4500;
-
   box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
 }
-
 .epic-contador {
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
   gap: 15px;
-
   margin-bottom: 35px;
-
   color: #666666;
-
   font-size: 9px;
-
   font-weight: 800;
-
   letter-spacing: 3px;
 }
-
 .epic-contador span:first-child {
   color: #ff0000;
-
   text-shadow: 0 0 8px red;
 }
-
 .epic-gallery-nueva {
   display: grid;
-
   grid-template-columns: repeat(4, 1fr);
-
   gap: 12px;
 }
-
 .epic-photo-nueva {
   position: relative;
-
   height: 280px;
-
   overflow: hidden;
-
   cursor: pointer;
-
   border: 1px solid rgba(255, 0, 0, 0.2);
-
   background: #080808;
-
   transition: 0.4s;
 }
-
 .epic-photo-nueva::after {
   content: "";
-
   position: absolute;
-
   inset: 0;
-
   pointer-events: none;
-
   background: linear-gradient(transparent 45%, rgba(0, 0, 0, 0.75));
-
   opacity: 0;
-
   transition: 0.4s;
 }
-
 .epic-photo-nueva img {
   width: 100%;
-
   height: 100%;
-
   object-fit: cover;
-
   transition:
     transform 0.6s,
     filter 0.4s;
 }
-
 .epic-photo-nueva:hover {
   border-color: #ff0000;
-
   box-shadow: 0 0 18px rgba(255, 0, 0, 0.4);
-
   transform: translateY(-3px);
 }
-
 .epic-photo-nueva:hover img {
   transform: scale(1.08);
-
   filter: saturate(1.15);
 }
-
 .epic-photo-nueva:hover::after {
   opacity: 1;
 }
-
 .epic-cargar-container {
   display: flex;
-
   justify-content: center;
-
   margin-top: 45px;
 }
-
 .epic-cargar {
   cursor: pointer;
-
   border: none;
-
   min-width: 220px;
 }
 
+/* Infinite Scroll Loading */
+.epic-loading {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 40px;
+  color: #666;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.epic-loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 0, 0, 0.2);
+  border-top-color: var(--rojo);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.epic-sentinel {
+  height: 1px;
+  width: 100%;
+}
 .epic-videos {
   display: none;
-
   grid-template-columns: repeat(2, 1fr);
-
   gap: 25px;
 }
-
 .epic-video-card {
   position: relative;
-
   overflow: hidden;
-
   background: #080808;
-
   border: 1px solid rgba(255, 0, 0, 0.25);
-
   transition: 0.4s;
 }
-
 .epic-video-card:hover {
   border-color: #ff0000;
-
   box-shadow: 0 0 25px rgba(255, 0, 0, 0.35);
-
   transform: translateY(-3px);
 }
-
 .epic-video-card video {
   display: block;
-
   width: 100%;
-
   height: 450px;
-
   object-fit: cover;
-
   background: #000000;
 }
-
 .epic-video-titulo {
   padding: 16px 20px;
-
   color: #ffffff;
-
   font-size: 10px;
-
   font-weight: 800;
-
   letter-spacing: 2px;
-
   border-top: 1px solid rgba(255, 0, 0, 0.2);
 }
-
 .epic-photo-nueva {
   animation: epicEntrada 0.5s ease both;
 }
-
 @keyframes epicEntrada {
   from {
     opacity: 0;
-
     transform: translateY(20px) scale(0.98);
   }
-
   to {
     opacity: 1;
-
     transform: translateY(0) scale(1);
   }
-}
-
-/* ==========================================
-   GALERÍA GENERAL
-========================================== */
-
+} /* ========================================== GALERÍA GENERAL ========================================== */
 .galeria {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
 }
-
 .gallery-item {
   position: relative;
   height: 350px;
   overflow: hidden;
   cursor: pointer;
   border: 1px solid rgba(255, 0, 0, 0.15);
+  background: #111;
 }
-
 .gallery-large {
   grid-row: span 2;
-  height: 715px;
+  height: auto;
+  min-height: 715px;
 }
-
 .gallery-wide {
   grid-column: span 2;
 }
-
 .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: 0.6s;
 }
-
 .gallery-item:hover img {
   transform: scale(1.08);
 }
-
 .gallery-item::after {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(transparent 40%, rgba(0, 0, 0, 0.9));
 }
-
 .gallery-item:hover {
   border-color: red;
   box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
 }
-
 .gallery-caption {
   position: absolute;
   left: 20px;
@@ -990,45 +784,26 @@ h2 span {
   display: flex;
   justify-content: space-between;
 }
-
 .gallery-caption strong {
   font-size: 11px;
   letter-spacing: 2px;
-}
-
-/* ==========================================
-   PRÓXIMO EVENTO
-========================================== */
-
+} /* ========================================== PRÓXIMO EVENTO ========================================== */
 .proximo-evento {
   position: relative;
-
   padding: 140px 20px;
-
   text-align: center;
-
   overflow: hidden;
-
   background: radial-gradient(circle, #500000, #150000 40%, #030303 80%);
-
   border-top: 2px solid red;
-
   border-bottom: 2px solid red;
 }
-
 .proximo-evento::before {
   content: "";
-
   position: absolute;
-
   top: 0;
-
   left: 0;
-
   width: 100%;
-
   height: 3px;
-
   background: linear-gradient(
     90deg,
     transparent,
@@ -1038,95 +813,58 @@ h2 span {
     #ff0000,
     transparent
   );
-
   box-shadow: 0 0 15px red;
 }
-
 .proximo-evento-content {
   position: relative;
-
   z-index: 2;
-
   max-width: 850px;
-
   margin: auto;
 }
-
 .proximo-evento h2 {
   font-size: clamp(60px, 10vw, 130px);
 }
-
 .proximo-evento h2 span {
   background: linear-gradient(180deg, #fff000, #ff6a00, #ff0000);
-
   -webkit-background-clip: text;
-
   background-clip: text;
-
   -webkit-text-fill-color: transparent;
-
   filter: drop-shadow(0 0 10px red);
 }
-
 .proximo-line {
   width: 120px;
-
   height: 3px;
-
   margin: 35px auto;
-
   background: linear-gradient(90deg, red, orange);
-
   box-shadow: 0 0 10px red;
 }
-
 .evento-status {
   display: inline-flex;
-
   padding: 12px 25px;
-
   margin-bottom: 25px;
-
   color: #ffffff;
-
   background: linear-gradient(135deg, #ff0000, #ff4500);
-
   border: 1px solid #ff4500;
-
   font-size: 10px;
-
   font-weight: 800;
-
   letter-spacing: 3px;
-
   box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
 }
-
 .proximo-evento-content > p:not(.eyebrow) {
   max-width: 650px;
-
   margin: 0 auto 35px;
-
   color: #aaa;
-
   line-height: 1.8;
-}
-
-/* ==========================================
-   CTA
-========================================== */
-
+} /* ========================================== CTA ========================================== */
 .cta {
   padding: 150px 20px;
   text-align: center;
   background: radial-gradient(circle, #500000, #150000 40%, #030303 80%);
   border-top: 2px solid red;
 }
-
 .cta h2 {
   font-size: clamp(60px, 10vw, 130px);
 }
-
 .cta h2 span {
   background: linear-gradient(180deg, #fff000, #ff6a00, #ff0000);
   -webkit-background-clip: text;
@@ -1134,78 +872,51 @@ h2 span {
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 0 10px red);
 }
-
 .cta-content > p {
   max-width: 600px;
   margin: 30px auto;
   color: #aaa;
   line-height: 1.8;
 }
-
 .contact-buttons {
   display: flex;
   justify-content: center;
   gap: 15px;
-}
-
-/* ==========================================
-   BOTONES CTA
-========================================== */
-
+} /* ========================================== BOTONES CTA ========================================== */
 .btn-dark {
   background: #030303;
-
   border: 1px solid #ff0000;
-
   color: #ffffff;
-
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
 }
-
 .btn-dark:hover {
   background: #ff0000;
-
   box-shadow: 0 0 20px red;
-
   transform: translateY(-3px);
 }
-
 .btn-instagram {
   background: linear-gradient(135deg, #ff0000, #ff4500);
-
   border: 1px solid #ff4500;
-
   color: #ffffff;
-
   box-shadow: 0 0 10px red;
 }
-
 .btn-instagram:hover {
   transform: translateY(-3px);
-
   box-shadow: 0 0 20px red;
-}
-
-/* ==========================================
-   FOOTER
-========================================== */
-
+} /* ========================================== FOOTER ========================================== */
 footer {
   padding: 60px 20px;
   text-align: center;
   background: #000;
 }
-
 .footer-logo {
   font-family: "Anton", sans-serif;
   font-size: 35px;
 }
-
 .footer-logo span {
   color: var(--rojo);
   text-shadow: 0 0 10px red;
 }
-
 footer p {
   margin-top: 10px;
   color: #555;
@@ -1213,20 +924,45 @@ footer p {
   font-weight: 800;
   letter-spacing: 3px;
 }
-
 .footer-social {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 20px;
   margin-top: 30px;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border: 1px solid rgba(255, 0, 0, 0.3);
   color: #888;
-  font-size: 10px;
-  font-weight: 700;
+  transition: all 0.3s ease;
 }
 
 .footer-social a:hover {
   color: var(--rojo);
-  text-shadow: 0 0 10px red;
+  border-color: var(--rojo);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+  transform: translateY(-3px);
+}
+
+.footer-location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 25px;
+  color: #555;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.footer-location svg {
+  color: var(--rojo);
 }
 
 .copyright {
@@ -1234,12 +970,7 @@ footer p {
   margin-top: 30px;
   color: #444;
   font-size: 9px;
-}
-
-/* ==========================================
-   MODAL
-========================================== */
-
+} /* ========================================== MODAL ========================================== */
 .modal {
   position: fixed;
   inset: 0;
@@ -1253,12 +984,10 @@ footer p {
   visibility: hidden;
   transition: 0.3s;
 }
-
 .modal.activo {
   opacity: 1;
   visibility: visible;
 }
-
 .modal img {
   max-width: 95vw;
   max-height: 90vh;
@@ -1266,7 +995,6 @@ footer p {
   border: 1px solid red;
   box-shadow: 0 0 25px red;
 }
-
 .cerrar {
   position: absolute;
   top: 25px;
@@ -1283,284 +1011,194 @@ footer p {
   cursor: pointer;
   box-shadow: 0 0 10px red;
 }
-
 .cerrar:hover {
   background: red;
   color: white;
-}
-
-/* ==========================================
-   TABLET
-========================================== */
-
+} /* ========================================== TABLET ========================================== */
 @media (max-width: 950px) {
   .nav-links {
     display: none;
   }
-
   .intro-grid {
     grid-template-columns: 1fr;
     gap: 50px;
   }
-
   .stats {
     grid-template-columns: repeat(2, 1fr);
   }
-
   .stat:nth-child(2) {
     border-right: none;
   }
-
   .routes-grid {
     grid-template-columns: 1fr 1fr;
   }
-
   .section-heading {
     align-items: flex-start;
-
     flex-direction: column;
   }
-
   .epic-gallery {
     grid-template-columns: 1fr 1fr;
   }
-
   .epic-photo-wide {
     grid-column: span 2;
   }
-
   .galeria {
     grid-template-columns: 1fr 1fr;
   }
-
   .gallery-large {
     grid-row: span 1;
-
     height: 350px;
   }
-
   .epic-gallery-nueva {
     grid-template-columns: repeat(3, 1fr);
   }
-
   .epic-videos {
     grid-template-columns: 1fr 1fr;
   }
-
   .epic-video-card video {
     height: 350px;
   }
-}
-
-/* ==========================================
-   CELULAR
-========================================== */
-
+} /* ========================================== CELULAR ========================================== */
 @media (max-width: 600px) {
   .navbar {
     padding: 15px 20px;
   }
-
   .nav-logo {
     font-size: 20px;
   }
-
   .nav-button {
     padding: 10px 15px;
   }
-
   .hero h1 {
     font-size: 75px;
   }
-
   .hero-small {
     font-size: 8px;
-
     letter-spacing: 3px;
   }
-
   .hero-description {
     font-size: 14px;
   }
-
   .hero-buttons {
     flex-direction: column;
-
     align-items: center;
   }
-
   .hero-bottom {
     font-size: 6px;
-
     gap: 6px;
   }
-
   .section {
     padding: 80px 20px;
   }
-
   h2 {
     font-size: 60px;
   }
-
   .stats {
     grid-template-columns: 1fr 1fr;
   }
-
   .stat {
     padding: 35px 10px;
   }
-
   .stat strong {
     font-size: 40px;
   }
-
   .stat span {
     font-size: 7px;
   }
-
   .routes-grid {
     grid-template-columns: 1fr;
   }
-
   .route-card {
     height: 420px;
   }
-
   .experience {
     min-height: 500px;
-
     background-attachment: scroll;
   }
-
   .epic-section {
     min-height: 700px;
   }
-
   .epic-content {
     padding: 100px 20px;
   }
-
   .epic-content h2 {
     font-size: 70px;
   }
-
   .epic-data {
     gap: 25px;
-
     flex-wrap: wrap;
   }
-
   .epic-data strong {
     font-size: 30px;
   }
-
   .epic-gallery {
     grid-template-columns: 1fr;
-
     grid-auto-rows: 300px;
   }
-
   .epic-photo-big,
   .epic-photo-wide {
     grid-column: auto;
-
     grid-row: auto;
   }
-
   .galeria {
     grid-template-columns: 1fr;
   }
-
   .gallery-item,
   .gallery-large,
   .gallery-wide {
     grid-column: auto;
-
     grid-row: auto;
-
     height: 300px;
-  }
-
-  /* GALERÍA EPIC NUEVA */
-
+  } /* GALERÍA EPIC NUEVA */
   .epic-filtros {
     gap: 10px;
   }
-
   .epic-filtro {
     flex: 1;
-
     padding: 13px 10px;
-
     font-size: 8px;
   }
-
   .epic-contador {
     font-size: 7px;
-
     letter-spacing: 2px;
   }
-
   .epic-gallery-nueva {
     grid-template-columns: 1fr 1fr;
-
     gap: 8px;
   }
-
   .epic-photo-nueva {
     height: 220px;
   }
-
   .epic-videos {
     grid-template-columns: 1fr;
   }
-
   .epic-video-card video {
     height: 300px;
   }
-
   .epic-cargar {
     width: 100%;
-  }
-
-  /* PRÓXIMO EVENTO */
-
+  } /* PRÓXIMO EVENTO */
   .proximo-evento {
     padding: 100px 20px;
   }
-
   .proximo-evento h2 {
     font-size: 65px;
   }
-
   .evento-status {
     font-size: 8px;
-
     letter-spacing: 2px;
   }
-
   .cta {
     padding: 100px 20px;
   }
-
   .cta h2 {
     font-size: 65px;
   }
-
   .contact-buttons {
     flex-direction: column;
-
     align-items: center;
   }
-}
-
-/* ==========================================
-   TARJETAS Y REPRODUCTOR DE VIDEO EPIC
-   ========================================== */
-
-/* Contenedor tipo tarjeta para los videos */
-/* Estructura para que los videos mantengan su calidad original */
+} /* ========================================== TARJETAS Y REPRODUCTOR DE VIDEO EPIC ========================================== */ /* Contenedor tipo tarjeta para los videos */ /* Estructura para que los videos mantengan su calidad original */
 .epic-video {
   position: relative;
   background: #000000; /* Fondo negro elegante para rellenar espacios libres */
@@ -1577,23 +1215,18 @@ footer p {
   align-items: center;
   justify-content: center;
 }
-
 .epic-video:hover {
   transform: translateY(-5px);
   border-color: #ff2a00;
   box-shadow: 0 8px 25px rgba(255, 42, 0, 0.25);
-}
-
-/* CAMBIO CLAVE: object-fit: contain */
+} /* CAMBIO CLAVE: object-fit: contain */
 .epic-video video {
   width: 100%;
   height: 100%;
   object-fit: contain; /* Mantiene la proporción y resolución real del video sin estirarlo ni recortarlo */
   display: block;
   background-color: #000;
-}
-
-/* Etiqueta con el número de video (estilo coherente con fotos) */
+} /* Etiqueta con el número de video (estilo coherente con fotos) */
 .video-number {
   position: absolute;
   bottom: 10px;
@@ -1609,4 +1242,470 @@ footer p {
   letter-spacing: 1px;
   pointer-events: none;
   z-index: 2;
+}
+
+/* ========================================== PRELOADER ========================================== */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #030303;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-inner {
+  text-align: center;
+}
+
+.preloader-logo {
+  font-family: "Anton", sans-serif;
+  font-size: 45px;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  animation: preloaderPulse 1.5s ease-in-out infinite;
+}
+
+.preloader-logo span {
+  color: var(--rojo);
+  text-shadow: 0 0 20px red;
+}
+
+.preloader-bar {
+  width: 200px;
+  height: 3px;
+  background: rgba(255, 0, 0, 0.2);
+  margin: 0 auto 20px;
+  overflow: hidden;
+}
+
+.preloader-progress {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff0000, #ff6a00, #ffc400);
+  box-shadow: 0 0 15px red;
+  animation: preloaderProgress 1.5s ease-in-out forwards;
+}
+
+.preloader-text {
+  color: #666;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  animation: preloaderTextPulse 1s ease-in-out infinite;
+}
+
+@keyframes preloaderPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.02); }
+}
+
+@keyframes preloaderProgress {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+@keyframes preloaderTextPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* ========================================== CUSTOM CURSOR ========================================== */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--rojo);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, background 0.2s ease;
+  box-shadow: 0 0 10px red;
+}
+
+.cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(255, 0, 0, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99997;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+}
+
+.cursor-dot.hover {
+  transform: translate(-50%, -50%) scale(2);
+  background: #ff6a00;
+}
+
+.cursor-outline.hover {
+  width: 60px;
+  height: 60px;
+  border-color: rgba(255, 106, 0, 0.3);
+}
+
+@media (max-width: 950px) {
+  .cursor-dot,
+  .cursor-outline {
+    display: none;
+  }
+}
+
+/* ========================================== SCROLL ANIMATIONS ========================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-scale.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================== SCROLL TO TOP ========================================== */
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ff0000, #ff4500);
+  border: 1px solid #ff4500;
+  color: white;
+  cursor: pointer;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px red, 0 0 50px rgba(255, 69, 0, 0.4);
+}
+
+.scroll-top svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ========================================== NAV TOGGLE (HAMBURGUESA) ========================================== */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: var(--blanco);
+  transition: all 0.3s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media (max-width: 950px) {
+  .nav-toggle {
+    display: flex;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    background: rgba(3, 3, 3, 0.98);
+    backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(255, 0, 0, 0.3);
+    transition: right 0.4s ease;
+    z-index: 1000;
+  }
+  
+  .nav-links.active {
+    right: 0;
+  }
+  
+  .nav-links a {
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+}
+
+/* ========================================== NAVBAR SCROLL EFFECT ========================================== */
+.navbar.scrolled {
+  padding: 12px 5%;
+  background: rgba(0, 0, 0, 0.98);
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ========================================== STAT COUNTER ANIMATION ========================================== */
+.stat strong {
+  display: block;
+  font-family: "Anton", sans-serif;
+  font-size: 55px;
+  font-weight: 400;
+  background: linear-gradient(180deg, #ffcc00, #ff6a00, #ff0000);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 8px red);
+  transition: transform 0.3s ease;
+}
+
+.stat:hover strong {
+  transform: scale(1.1);
+}
+
+/* ========================================== ENHANCED HOVER EFFECTS ========================================== */
+.route-card {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 0, 0, 0.2);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.route-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+
+.route-card:hover::before {
+  opacity: 1;
+}
+
+.route-card:hover {
+  transform: translateY(-10px);
+  border-color: red;
+  box-shadow: 0 20px 40px rgba(255, 0, 0, 0.3);
+}
+
+/* ========================================== GALLERY ITEM ENHANCED ========================================== */
+.gallery-item {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(255, 0, 0, 0.15);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.gallery-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 0, 0, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+
+.gallery-item:hover::before {
+  opacity: 1;
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+  border-color: red;
+  box-shadow: 0 15px 35px rgba(255, 0, 0, 0.25);
+}
+
+/* ========================================== LOADING STATE FOR IMAGES ========================================== */
+.epic-photo-nueva,
+.gallery-item,
+.route-card {
+  background: linear-gradient(135deg, #080808, #111111);
+  background-size: 200% 200%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.epic-photo-nueva img,
+.gallery-item img,
+.route-card img {
+  position: relative;
+  z-index: 1;
+}
+
+/* ========================================== SMOOTH SECTION TRANSITIONS ========================================== */
+.section {
+  position: relative;
+}
+
+.section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.3), transparent);
+}
+
+/* ========================================== MODAL ENHANCED ========================================== */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.97);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(10px);
+}
+
+.modal.activo {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal img {
+  max-width: 95vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border: 2px solid red;
+  box-shadow: 0 0 50px rgba(255, 0, 0, 0.5);
+  transform: scale(0.9);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.modal.activo img {
+  transform: scale(1);
+}
+
+.cerrar {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid red;
+  color: red;
+  font-size: 35px;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.cerrar:hover {
+  background: red;
+  color: white;
+  transform: rotate(90deg);
+  box-shadow: 0 0 30px red;
 }
